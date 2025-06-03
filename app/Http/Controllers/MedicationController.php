@@ -10,10 +10,20 @@ class MedicationController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
         //
-        $medications = Medication::all();
+        $query = Medication::query();
+
+        if ($request->filled('search')){
+            $search = $request->input ('search');
+            $query->where('name','like',"%{$search}%")
+                  ->orwhere('batch', 'like', "%{$search}%");  
+        }
+
+        //$medications = Medication::all();
+        $medications = $query->get();
+
         return view('medications.index', compact('medications'));
     }
 

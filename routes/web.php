@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MedicationController;
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('medications.index');
 });
 
 Route::resource('medications', MedicationController::class);
