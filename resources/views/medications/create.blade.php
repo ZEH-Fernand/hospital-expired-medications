@@ -3,7 +3,7 @@
 @section('title', 'Agregar Medicamento')
 
 @section('content')
-    <h1>Agregar Medicamento</h1>
+    <h1>Agregar Medicamento v2</h1>
 
     @if ($errors->any())
         <div class="alert alert-danger">
